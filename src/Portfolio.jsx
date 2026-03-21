@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from "react";
 import PHOTO from "./photo.jpg";
 import RESUME from "./resume.pdf";
@@ -564,6 +565,7 @@ export default function Portfolio() {
       }
     }
     return () => clearTimeout(timeout);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [typedText, isDeleting, typeIndex, loading]);
 
   useEffect(() => {
@@ -673,7 +675,7 @@ export default function Portfolio() {
 
       {/* NAV */}
       <nav className={`nav${scrolled?" raised":""}`}>
-        <a href="#" className="nav-logo">
+        <a href="#top" className="nav-logo" onClick={e=>{e.preventDefault();window.scrollTo({top:0,behavior:"smooth"})}}>
           <div className="nav-logo-mark">V</div>
           <span className="nav-logo-name">Varun Kumar .M</span>
         </a>
